@@ -32,33 +32,41 @@ body {
 }
 .header__content {
   display: flex;
-  align-items: center;
-
+  justify-content: space-between;
   position: relative;
   height: 80px;
   padding: 20px 0;
+  margin: 0 1px;
+}
+.header__main {
+  display: flex;
+  align-items: center;
+  flex: 1 1 100%;
 }
 
 .header__logo {
+  display: flex;
 }
 .header__search {
   flex: 1 1 auto;
   margin: 0 0px 0 60px;
-  margin-right: calc(60px + 19px);
+  margin-right: calc(60px + 9px);
   width: 100%;
   border: 1px solid #ebebf1;
-
   border-radius: 5px;
+  height: 100%;
 }
 .header__search_items {
   margin: 12px 14px;
   display: flex;
 }
 .header__search input {
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto";
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.01em;
 
   letter-spacing: 0.01em;
   border: none;
@@ -87,19 +95,43 @@ body {
 .header__search input::placeholder {
   color: #bbc4d6;
 }
+.header__acc_icon {
+  width: 100%;
+  display: none;
+}
 .header__acc {
   display: flex;
   align-items: center;
   position: relative;
 }
-.header__acc::before {
+.header__acc_pc {
+  display: flex;
+  align-items: center;
+}
+.header__acc_pc::before {
   content: "";
   position: absolute;
   width: 1px;
   height: 80px;
-  left: -19px;
+  left: -9px;
   top: calc(50% - 80px / 2);
   background: #ebebf1;
+}
+.header__acc span {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 120%;
+
+  text-align: right;
+  letter-spacing: 0.01em;
+
+  color: #768298;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 0px 10px;
 }
 
 .header__acc_logo {
@@ -107,7 +139,6 @@ body {
   height: 40px;
   width: 40px;
   border-radius: 50%;
-  margin: 0px 0px 0px 10px;
 }
 .main {
   padding: 70px 0;
@@ -140,9 +171,6 @@ body {
   margin: 30px 30px 30px 0;
   transition: box-shadow 0.1s ease;
 }
-.partners__content_item:nth-child(4n) {
-  margin: 30px 0px 30px 0;
-}
 
 .partners__content_item:hover {
   box-shadow: -3px 0px 40px rgba(0, 0, 0, 0.1),
@@ -165,4 +193,154 @@ body {
   max-height: 100%;
 }
 .footer {
+}
+
+/*------------------------------MEDIA*/
+
+/* Large desktops and laptops */
+@media (min-width: 1200px) {
+  .partners__content_item:nth-child(4n) {
+    margin: 30px 0px 30px 0;
+  }
+}
+
+/* Landscape tablets and medium desktops */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .container {
+    max-width: 980px;
+  }
+  .partners__content_item {
+    width: 225px;
+    height: 120px;
+
+    margin: 20px 20px 20px 0;
+  }
+  .partners__content_item:nth-child(4n) {
+    margin: 20px 0px 20px 0;
+  }
+  .partners__logo a {
+    padding: 23px 16px;
+    width: 225px;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: url(/assets/images/cursor.png), pointer;
+  }
+}
+
+/* Portrait tablets and small desktops */
+@media (min-width: 768px) and (max-width: 991px) {
+  .container {
+    max-width: 728px;
+  }
+  .header__search {
+    margin: 0 0px 0 50px;
+    margin-right: calc(50px + 9px);
+  }
+  .partners__content_item {
+    width: 229px;
+    height: 120px;
+
+    margin: 20px 20px 20px 0;
+  }
+  .partners__content_item:nth-child(3n) {
+    width: 230px;
+    margin: 20px 0px 20px 0;
+  }
+  .partners__logo a {
+    padding: 23px 16px;
+    width: 230px;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: url(/assets/images/cursor.png), pointer;
+  }
+  .partners__title .title {
+    text-transform: uppercase;
+    font-weight: 500;
+    color: #121920;
+    font-size: 36px;
+    line-height: 160%;
+    font-size: 28px;
+  }
+}
+
+/* Landscape phones and portrait tablets */
+@media (max-width: 767px) {
+  .container {
+    width: 335px;
+  }
+  .header__content {
+    padding: 0;
+    height: 105px;
+  }
+  .header__main {
+    flex-wrap: wrap;
+
+    align-items: flex-end;
+  }
+  .header__acc_icon {
+    z-index: 5;
+    display: block;
+    justify-content: center;
+    align-items: center;
+
+    height: 24px;
+    width: 24px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    margin: 0px 20px;
+
+    cursor: pointer;
+  }
+  .header__acc {
+    height: 65px;
+  }
+  .header__acc_pc {
+    display: none;
+  }
+  .header__search {
+    height: 40px;
+    margin: 0 0 0 0;
+    border: none;
+  }
+  .header__search::before {
+    content: "";
+    position: absolute;
+    width: 375px;
+    height: 1px;
+    left: calc(50% - 375px / 2);
+    top: 64px;
+
+    /* Основные / Серый средний */
+
+    background: #bbc4d6;
+    opacity: 0.5;
+    transform: matrix(1, 0, 0, -1, 0, 0);
+  }
+  .header__search_items {
+    margin: 12px 0px;
+    display: flex;
+  }
+  .header__search input {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+  }
+}
+
+/* Portrait phones and smaller */
+@media (max-width: 480px) {
+}
+
+/* Iphone 5 */
+@media (max-width: 374px) {
+  .container {
+    max-width: none;
+  }
 }
