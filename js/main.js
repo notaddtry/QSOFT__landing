@@ -1,6 +1,7 @@
 const IconMenu = document.querySelector('.menu__icon')
 const menuBody = document.querySelector('.header__acc')
-const productArray = document.querySelectorAll('.partners_logo')
+let productArray = document.querySelectorAll('.partners_logo')
+
 if (IconMenu) {
   IconMenu.addEventListener('click', function (e) {
     document.body.classList.toggle('_lock')
@@ -10,6 +11,8 @@ if (IconMenu) {
 }
 
 let altProductArray = new Array()
+productArray = Array.from(productArray)
+
 productArray.forEach((e) => {
   let altProduct = e.getAttribute('alt')
 
@@ -27,30 +30,14 @@ function change() {
     )
   }
   const FilteredArray = FilterProductArray(search)
+  console.log(FilteredArray)
 
-  for (i = 0; i < altProductArray.length; i++) {
-    for (y = 0; y < FilteredArray.length; y++) {
-      if (FilteredArray[y] === altProductArray[i]) {
-        productArray.forEach((e) => {
-          let altProduct = e.getAttribute('alt')
-
-          if (altProduct != altProductArray[i]) {
-            //   let parent = e.parentNode.parentNode.parentNode
-            //   e.parentNode.parentNode.parentNode.parentNode.removeChild(parent)
-          }
-        })
+  productArray.forEach((product) => {
+    product.parentNode.parentNode.parentNode.style.display = 'none'
+    for (i = 0; i < FilteredArray.length; i++) {
+      if (product.getAttribute('alt') === FilteredArray[i]) {
+        product.parentNode.parentNode.parentNode.style.display = 'block'
       }
     }
-  }
-
-  //   productArray.forEach((e) => {
-  //     let altProduct = e.getAttribute('alt')
-  //     if (altProduct != search) {
-  //       parent = e.parentNode.parentNode
-  //       console.log(altProduct)
-  //       console.log(search)
-  //       console.log(parent)
-  //       e.parentNode.parentNode.parentNode.removeChild(parent)
-  //     }
-  //   })
+  })
 }
