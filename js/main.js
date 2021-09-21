@@ -37,6 +37,7 @@ function change() {
     for (i = 0; i < FilteredArray.length; i++) {
       if (product.getAttribute('alt') === FilteredArray[i]) {
         product.parentNode.parentNode.parentNode.style.display = 'block'
+        // This is solution the problem of undefinded JSON
       }
     }
   })
