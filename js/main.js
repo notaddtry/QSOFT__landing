@@ -18,9 +18,6 @@ productArray.forEach((e) => {
 
   altProductArray.push(altProduct)
 })
-console.log(altProductArray)
-
-let partnersArray = document.querySelectorAll('.partners__content_item')
 
 function change() {
   let search = document.querySelector('.search').value
@@ -30,7 +27,6 @@ function change() {
     )
   }
   const FilteredArray = FilterProductArray(search)
-  console.log(FilteredArray)
 
   productArray.forEach((product) => {
     product.parentNode.parentNode.parentNode.style.display = 'none'
