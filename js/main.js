@@ -38,3 +38,14 @@ function change() {
     }
   })
 }
+
+let headerIconChange = document.querySelector('.header__acc_icon')
+let iconProfile = document.querySelector('.icon_profile')
+let iconBell = document.querySelector('.icon_bell')
+
+headerIconChange.addEventListener('click', (e) => {
+  e.preventDefault()
+  iconProfile.classList.toggle('hidden')
+  iconProfile.style.position = 'absolute'
+  iconBell.classList.toggle('hidden')
+})
