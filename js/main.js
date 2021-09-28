@@ -1,6 +1,7 @@
 const IconMenu = document.querySelector('.menu__icon')
 const menuBody = document.querySelector('.header__acc')
 let productArray = document.querySelectorAll('.partners_logo')
+let searchIcon = document.querySelector('.icon-Ellipse')
 
 if (IconMenu) {
   IconMenu.addEventListener('click', function (e) {
@@ -18,6 +19,8 @@ productArray.forEach((e) => {
 
   altProductArray.push(altProduct)
 })
+
+searchIcon.addEventListener('click', change)
 
 function change() {
   let search = document.querySelector('.search').value
